@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
+import Link from 'next/link';
+
+export const BackButton = styled(Link)`
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: #0070f3;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+`;
+
 export const Container = styled.div`
   display: flex;
   gap: 20px;

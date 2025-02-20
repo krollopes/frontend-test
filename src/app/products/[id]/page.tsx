@@ -1,5 +1,6 @@
 import { Product, ProductService } from '@/services/products';
 import {
+  BackButton,
   Category,
   Container,
   Description,
@@ -27,6 +28,7 @@ export default async function ProductDetailsPage({ params }: ProductPageProps) {
         <Price>${product.price.toFixed(2)}</Price>
         <Description>{product.description}</Description>
         <Category>Category: {product.category}</Category>
+        <BackButton href="/">← Back to Home</BackButton>
       </Info>
     </Container>
   );
