@@ -1,6 +1,6 @@
 'use client';
 
-import { Container, Input, Select } from './SearchAndFilter.styles';
+import { Container, Input, Label, Select } from './SearchAndFilter.styles';
 
 interface Props {
   searchTerm: string;
@@ -19,20 +19,31 @@ export default function SearchAndFilter({
 }: Props) {
   return (
     <Container>
-      <Input
-        type="text"
-        placeholder="Search products..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <Select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-        <option value="">All Categories</option>
-        {categories.map((category) => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </Select>
+      <div>
+        <Label htmlFor="search">Search:</Label>
+        <Input
+          id="search"
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Search products..."
+        />
+      </div>
+      <div>
+        <Label htmlFor="category">Category:</Label>
+        <Select
+          id="category"
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          <option value="">All Categories</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </Select>
+      </div>
     </Container>
   );
 }
