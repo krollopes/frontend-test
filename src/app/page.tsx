@@ -1,6 +1,6 @@
 'use client';
 
-// import ProductList from '@/components/ProductList/ProductList';
+import ProductList from '@/components/ProductList/ProductList';
 import SearchAndFilter from '@/components/SearchAndFilter/SearchAndFilter';
 import { Product, ProductService } from '@/services/products';
 import { useEffect, useState } from 'react';
