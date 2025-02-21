@@ -1,5 +1,9 @@
 'use client';
 
+import { Product, ProductService } from '@/services/products';
+import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import {
   BackButton,
   Category,
@@ -9,24 +13,33 @@ import {
   Info,
   Price,
   Title,
-} from '@/app/products/[id]/ProductDetails.styles';
-import { Product, ProductService } from '@/services/products';
-import Image from 'next/image';
-import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+} from './ProductDetails.styles';
 
 export default function ProductDetailsPage() {
   const params = useParams();
   const id = params.id as string;
   const [product, setProduct] = useState<Product | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchProduct() {
-      const fetchedProduct = await ProductService.getById(Number(id));
-      setProduct(fetchedProduct);
+      try {
+        const fetchedProduct = await ProductService.getById(Number(id));
+        setProduct(fetchedProduct);
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError('An unknown error occurred');
+        }
+      }
     }
     fetchProduct();
   }, [id]);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   if (!product) {
     return <div>Loading...</div>;

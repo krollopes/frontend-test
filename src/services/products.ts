@@ -11,12 +11,22 @@ export interface Product {
 
 export const ProductService = {
   async getAll(): Promise<Product[]> {
-    const response = await api.get<Product[]>('/products');
-    return response.data;
+    try {
+      const response = await api.get<Product[]>('/products');
+      return response.data;
+    } catch (error) {
+      console.error('Failed to fetch products:', error);
+      throw new Error('Failed to fetch products');
+    }
   },
 
   async getById(id: number): Promise<Product> {
-    const response = await api.get<Product>(`/products/${id}`);
-    return response.data;
+    try {
+      const response = await api.get<Product>(`/products/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Failed to fetch product with id ${id}:`, error);
+      throw new Error('Failed to fetch product');
+    }
   },
 };

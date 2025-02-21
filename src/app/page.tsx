@@ -10,14 +10,22 @@ export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [categories, setCategories] = useState<string[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await ProductService.getAll();
-      setProducts(data);
-
-      const uniqueCategories = Array.from(new Set(data.map((product) => product.category)));
-      setCategories(uniqueCategories);
+      try {
+        const fetchedProducts = await ProductService.getAll();
+        setProducts(fetchedProducts);
+        const uniqueCategories = [...new Set(fetchedProducts.map((product) => product.category))];
+        setCategories(uniqueCategories);
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError('An unknown error occurred');
+        }
+      }
     }
     fetchData();
   }, []);
@@ -28,8 +36,12 @@ export default function HomePage() {
       (selectedCategory === '' || product.category === selectedCategory),
   );
 
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <main>
+    <>
       <SearchAndFilter
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -38,6 +50,6 @@ export default function HomePage() {
         setSelectedCategory={setSelectedCategory}
       />
       <ProductList products={filteredProducts} />
-    </main>
+    </>
   );
 }
