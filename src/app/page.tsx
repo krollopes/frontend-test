@@ -1,10 +1,16 @@
 'use client';
 
-import ProductList from '@/components/ProductList/ProductList';
-import SearchAndFilter from '@/components/SearchAndFilter/SearchAndFilter';
 import Spinner from '@/components/Spinner/Spinner';
 import { Product, ProductService } from '@/services/products';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+
+const ProductList = dynamic(() => import('@/components/ProductList/ProductList'), {
+  loading: () => <Spinner />,
+});
+const SearchAndFilter = dynamic(() => import('@/components/SearchAndFilter/SearchAndFilter'), {
+  loading: () => <Spinner />,
+});
 
 export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);

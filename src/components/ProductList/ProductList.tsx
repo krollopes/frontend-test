@@ -2,13 +2,14 @@
 
 import { ProductCard } from '@/components/ProductCard/ProductCard';
 import { Product } from '@/services/products';
+import { memo } from 'react';
 import { Grid } from './ProductList.styles';
 
 interface Props {
   products: Product[];
 }
 
-export default function ProductList({ products }: Props) {
+function ProductList({ products }: Props) {
   return (
     <Grid>
       {products.map((product) => (
@@ -17,3 +18,5 @@ export default function ProductList({ products }: Props) {
     </Grid>
   );
 }
+
+export default memo(ProductList);
