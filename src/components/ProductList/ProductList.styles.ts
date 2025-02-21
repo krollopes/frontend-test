@@ -6,6 +6,10 @@ export const Grid = styled.div`
   gap: 20px;
   padding: 20px;
 
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
