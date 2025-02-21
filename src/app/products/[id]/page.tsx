@@ -1,6 +1,5 @@
 'use client';
 
-import { Product, ProductService } from '@/services/products';
 import {
   BackButton,
   Category,
@@ -10,7 +9,8 @@ import {
   Info,
   Price,
   Title,
-} from '@/styles/ProductDetails.styles';
+} from '@/app/products/[id]/ProductDetails.styles';
+import { Product, ProductService } from '@/services/products';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
