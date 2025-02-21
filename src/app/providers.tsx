@@ -1,3 +1,5 @@
+'use client';
+
 import { ProductProvider } from '@/contexts/ProductContext';
 import { GlobalStyle } from '@/styles/global';
 import { theme } from '@/styles/theme';
