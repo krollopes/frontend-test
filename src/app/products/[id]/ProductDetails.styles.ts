@@ -9,6 +9,17 @@ export const BackButton = styled(Link)`
   color: white;
   border-radius: 5px;
   text-decoration: none;
+  transition: background 0.3s;
+  text-align: center;
+
+  &:hover {
+    background: #005bb5;
+  }
+
+  @media (min-width: 768px) {
+    width: auto;
+    align-self: flex-start;
+  }
 `;
 
 export const Container = styled.div`
@@ -27,14 +38,21 @@ export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
 `;
 
 export const Info = styled.div`
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 export const Title = styled.h1`
   font-size: 24px;
+  margin-bottom: 10px;
 
   @media (min-width: 768px) {
     font-size: 32px;
@@ -45,6 +63,7 @@ export const Price = styled.p`
   font-weight: bold;
   color: #0070f3;
   font-size: 20px;
+  margin-bottom: 10px;
 
   @media (min-width: 768px) {
     font-size: 24px;
@@ -54,6 +73,7 @@ export const Price = styled.p`
 export const Description = styled.p`
   margin-top: 10px;
   font-size: 16px;
+  line-height: 1.5;
 
   @media (min-width: 768px) {
     font-size: 18px;
