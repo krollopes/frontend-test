@@ -1,3 +1,5 @@
+'use client';
+
 import { Product, ProductService } from '@/services/products';
 import {
   BackButton,
@@ -10,13 +12,25 @@ import {
   Title,
 } from '@/styles/ProductDetails.styles';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-interface ProductPageProps {
-  params: { id: string };
-}
+export default function ProductDetailsPage() {
+  const params = useParams();
+  const id = params.id as string;
+  const [product, setProduct] = useState<Product | null>(null);
 
-export default async function ProductDetailsPage({ params }: ProductPageProps) {
-  const product: Product = await ProductService.getById(Number(params.id));
+  useEffect(() => {
+    async function fetchProduct() {
+      const fetchedProduct = await ProductService.getById(Number(id));
+      setProduct(fetchedProduct);
+    }
+    fetchProduct();
+  }, [id]);
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Container>
