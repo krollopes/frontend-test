@@ -2,6 +2,7 @@
 
 import ProductList from '@/components/ProductList/ProductList';
 import SearchAndFilter from '@/components/SearchAndFilter/SearchAndFilter';
+import Spinner from '@/components/Spinner/Spinner';
 import { Product, ProductService } from '@/services/products';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +12,7 @@ export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [categories, setCategories] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -25,6 +27,8 @@ export default function HomePage() {
         } else {
           setError('An unknown error occurred');
         }
+      } finally {
+        setLoading(false);
       }
     }
     fetchData();
@@ -35,6 +39,10 @@ export default function HomePage() {
       product.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
       (selectedCategory === '' || product.category === selectedCategory),
   );
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   if (error) {
     return <div>Error: {error}</div>;

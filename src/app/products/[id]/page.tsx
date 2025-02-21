@@ -1,5 +1,6 @@
 'use client';
 
+import Spinner from '@/components/Spinner/Spinner';
 import { Product, ProductService } from '@/services/products';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
@@ -20,6 +21,7 @@ export default function ProductDetailsPage() {
   const id = params.id as string;
   const [product, setProduct] = useState<Product | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -32,10 +34,16 @@ export default function ProductDetailsPage() {
         } else {
           setError('An unknown error occurred');
         }
+      } finally {
+        setLoading(false);
       }
     }
     fetchProduct();
   }, [id]);
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   if (error) {
     return <div>Error: {error}</div>;
