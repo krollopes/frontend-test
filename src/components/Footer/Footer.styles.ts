@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-  background: #0070f3;
+  background-color: #333;
   color: white;
   padding: 20px;
   text-align: center;
-  padding-top: 20px;
+  margin-top: auto;
 `;
 
 export const FooterText = styled.p`
