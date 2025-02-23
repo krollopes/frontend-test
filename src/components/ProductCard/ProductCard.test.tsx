@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { ProductCard } from './ProductCard';
+import ProductCard from './ProductCard';
 import { useRouter } from 'next/navigation';
 import '@testing-library/jest-dom';
 
