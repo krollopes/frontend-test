@@ -14,3 +14,14 @@ export const Grid = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+
+export const ProductGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin: 0 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
