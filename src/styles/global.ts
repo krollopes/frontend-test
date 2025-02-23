@@ -11,5 +11,18 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #__next {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  main {
+    flex-grow: 1;
   }
 `;
