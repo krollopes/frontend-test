@@ -1,55 +1,46 @@
-'use client';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { Product } from '../services/products';
+import { ProductService } from '@/services/products';
 
-import { Product, ProductService } from '@/services/products';
-import { createContext, useContext, useEffect, useState } from 'react';
-
-interface ProductContextData {
+interface ProductContextType {
   products: Product[];
   isLoading: boolean;
-  currentPage: number;
-  totalPages: number;
-  setPage: (page: number) => void;
 }
 
-const ProductContext = createContext<ProductContextData | undefined>(undefined);
+const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
-export function ProductProvider({ children }: { children: React.ReactNode }) {
+interface ProductProviderProps {
+  children: React.ReactNode;
+}
+
+export const ProductProvider: React.FC<ProductProviderProps> = ({ children }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    async function fetchProducts() {
+    const fetchProducts = async () => {
       try {
-        const data = await ProductService.getAll(currentPage);
-        setProducts(data);
-        setTotalPages(10);
+        const products = await ProductService.getAll();
+        setProducts(products);
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error(error);
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
     fetchProducts();
-  }, [currentPage]);
-
-  const setPage = (page: number) => {
-    setCurrentPage(page);
-  };
+  }, []);
 
   return (
-    <ProductContext.Provider value={{ products, isLoading, currentPage, totalPages, setPage }}>
-      {children}
-    </ProductContext.Provider>
+    <ProductContext.Provider value={{ products, isLoading }}>{children}</ProductContext.Provider>
   );
-}
+};
 
-export function useProductContext() {
+export const useProductContext = () => {
   const context = useContext(ProductContext);
   if (!context) {
     throw new Error('useProductContext must be used within a ProductProvider');
   }
   return context;
-}
+};
