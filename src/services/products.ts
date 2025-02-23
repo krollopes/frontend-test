@@ -10,9 +10,11 @@ export interface Product {
 }
 
 export const ProductService = {
-  async getAll(): Promise<Product[]> {
+  async getAll(limit: number = 150): Promise<Product[]> {
     try {
-      const response = await api.get<Product[]>('/products');
+      const response = await api.get<Product[]>('/products', {
+        params: { limit },
+      });
       return response.data;
     } catch (error) {
       console.error('Failed to fetch products:', error);
