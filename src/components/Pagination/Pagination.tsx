@@ -1,4 +1,5 @@
 import React from 'react';
+import { PaginationContainer, PageButton } from './Pagination.styles';
 
 interface PaginationProps {
   currentPage: number;
@@ -17,26 +18,17 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
   }
 
   return (
-    <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginTop: '20px' }}>
+    <PaginationContainer>
       {pageNumbers.map((number) => (
-        <button
+        <PageButton
           key={number}
           onClick={() => handlePageClick(number)}
-          style={{
-            padding: '8px 12px',
-            border: '1px solid #ccc',
-            borderRadius: '5px',
-            backgroundColor: currentPage === number ? '#0070f3' : '#fff',
-            color: currentPage === number ? '#fff' : '#333',
-            cursor: 'pointer',
-            fontWeight: currentPage === number ? 'bold' : 'normal',
-            transition: 'background-color 0.3s',
-          }}
+          $isActive={currentPage === number}
         >
           {number}
-        </button>
+        </PageButton>
       ))}
-    </div>
+    </PaginationContainer>
   );
 };
 
