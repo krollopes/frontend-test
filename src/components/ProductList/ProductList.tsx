@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
-import { Product } from '@/services/products';
+import { Product } from '@/types/Product';
 import Pagination from '../Pagination/Pagination';
 import { useProductContext } from '@/contexts/ProductContext';
 import { ProductGrid } from './ProductList.styles';

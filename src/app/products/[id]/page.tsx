@@ -1,7 +1,16 @@
 'use client';
 
 import Spinner from '@/components/Spinner/Spinner';
-import { Product, ProductService } from '@/services/products';
+import { ProductService } from '@/services/ProductService';
+
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+}
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';

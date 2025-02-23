@@ -1,4 +1,4 @@
-import { ProductService } from './products';
+import { ProductService } from './ProductService';
 import { api } from './api';
 
 // Mock do axios

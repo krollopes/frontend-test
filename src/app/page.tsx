@@ -1,8 +1,9 @@
 'use client';
 
 import Spinner from '@/components/Spinner/Spinner';
-import { Product, ProductService } from '@/services/products';
+import { ProductService } from '@/services/ProductService';
 import dynamic from 'next/dynamic';
+import { Product } from '@/types/Product';
 import { useEffect, useState } from 'react';
 
 const ProductList = dynamic(() => import('@/components/ProductList/ProductList'), {
@@ -23,9 +24,11 @@ export default function HomePage() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const fetchedProducts = await ProductService.getAll();
+        const fetchedProducts = (await ProductService.getAll()) as Product[];
         setProducts(fetchedProducts);
-        const uniqueCategories = [...new Set(fetchedProducts.map((product) => product.category))];
+        const uniqueCategories: string[] = [
+          ...new Set(fetchedProducts.map((product: Product) => product.category)),
+        ];
         setCategories(uniqueCategories);
       } catch (error) {
         console.error('Erro ao buscar produtos:', error);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCartContext } from '@/contexts/CartContext';
-import { Product } from '@/services/products';
+import type { Product } from '@/types/Product';
 import Link from 'next/link';
 import {
   Card,
