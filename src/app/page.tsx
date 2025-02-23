@@ -28,11 +28,8 @@ export default function HomePage() {
         const uniqueCategories = [...new Set(fetchedProducts.map((product) => product.category))];
         setCategories(uniqueCategories);
       } catch (error) {
-        if (error instanceof Error) {
-          setError(error.message);
-        } else {
-          setError('An unknown error occurred');
-        }
+        console.error('Erro ao buscar produtos:', error);
+        setError(error instanceof Error ? error.message : 'An unknown error occurred');
       } finally {
         setLoading(false);
       }
@@ -43,7 +40,8 @@ export default function HomePage() {
   const filteredProducts = products.filter(
     (product) =>
       product.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (selectedCategory === '' || product.category === selectedCategory),
+      (selectedCategory === '' ||
+        product.category.trim().toLowerCase() === selectedCategory.trim().toLowerCase()),
   );
 
   if (loading) {
