@@ -29,7 +29,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <Card>
+    <Card data-testid="product-card">
       <Link href={`/products/${product.id}`} passHref>
         <ProductLink>
           <Image src={product.image} alt={product.title} />
