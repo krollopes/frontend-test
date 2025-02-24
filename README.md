@@ -35,11 +35,11 @@ Este é um projeto frontend simples criado com **Next.js** que consome a API pú
 
 1. Clone o repositório:
   ```bash
-  git clone https://github.com/usuario/fake-store.git
+  git clone https://github.com/krollopes/frontend-test.git
   ```
 2. Navegue até o diretório do projeto:
   ```bash
-  cd fake-store
+  cd frontend-test
   ```
 3. Instale as dependências:
   ```bash
@@ -116,7 +116,7 @@ frontend-test/
 
 ## Link da Aplicação 🌐
 
-A aplicação está hospedada na [Vercel](https://vercel.com/) e pode ser acessada aqui.
+A aplicação está hospedada na [Vercel](https://vercel.com/) e pode ser acessada [aqui](https://frontend-test-sepia-zeta.vercel.app/).
 
 ## Contribuindo 🤝
 
