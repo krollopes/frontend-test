@@ -76,7 +76,6 @@ describe('ProductContext', () => {
     // Esperar até que o "loading" desapareça
     await waitFor(() => expect(screen.queryByText('Loading...')).not.toBeInTheDocument());
 
-    // A lógica de erro pode ser testada dependendo de como você lida com falhas
     // Exemplo de verificar uma mensagem de erro (se for implementado)
     expect(screen.queryByText('Error fetching products')).not.toBeInTheDocument();
   });
