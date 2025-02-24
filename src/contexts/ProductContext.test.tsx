@@ -1,13 +1,13 @@
+import { ProductService } from '@/services/ProductService';
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
+import { ProductProvider, useProductContext } from '../contexts/ProductContext';
 
 type Product = {
   id: number;
   title: string;
   price: number;
 };
-import { ProductProvider, useProductContext } from '../contexts/ProductContext';
-import { ProductService } from '@/services/ProductService';
 
 jest.spyOn(console, 'error').mockImplementation(() => {});
 

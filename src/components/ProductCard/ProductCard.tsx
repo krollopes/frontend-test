@@ -1,15 +1,15 @@
-import React from 'react';
 import { useCartContext } from '@/contexts/CartContext';
 import type { Product } from '@/types/Product';
 import Link from 'next/link';
+import React from 'react';
 import {
-  Card,
-  ProductLink,
-  Image,
-  Title,
-  Price,
-  Description,
   AddToCartButton,
+  Card,
+  Description,
+  Image,
+  Price,
+  ProductLink,
+  Title,
 } from './ProductCard.styles';
 
 interface ProductCardProps {

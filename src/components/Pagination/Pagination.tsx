@@ -1,5 +1,5 @@
 import React from 'react';
-import { PaginationContainer, PageButton } from './Pagination.styles';
+import { PageButton, PaginationContainer } from './Pagination.styles';
 
 interface PaginationProps {
   currentPage: number;

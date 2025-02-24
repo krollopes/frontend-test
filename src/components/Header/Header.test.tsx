@@ -1,7 +1,7 @@
+import { CartProvider } from '@/contexts/CartContext';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Header from './Header';
-import { CartProvider } from '@/contexts/CartContext';
 
 describe('Header', () => {
   it('should render the logo with correct text', () => {

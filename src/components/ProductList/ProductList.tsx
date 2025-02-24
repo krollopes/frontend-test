@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import ProductCard from '../ProductCard/ProductCard';
-import { Product } from '@/types/Product';
-import Pagination from '../Pagination/Pagination';
 import { useProductContext } from '@/contexts/ProductContext';
+import { Product } from '@/types/Product';
+import React, { useEffect, useState } from 'react';
+import Pagination from '../Pagination/Pagination';
+import ProductCard from '../ProductCard/ProductCard';
 import { ProductGrid } from './ProductList.styles';
 
 interface ProductListProps {

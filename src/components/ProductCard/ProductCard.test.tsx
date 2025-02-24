@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import ProductCard from './ProductCard';
 import { CartProvider } from '@/contexts/CartContext';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import ProductCard from './ProductCard';
 
 jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),

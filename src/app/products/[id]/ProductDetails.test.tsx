@@ -1,8 +1,8 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import ProductDetailsPage from './page';
 import { ProductService } from '@/services/ProductService';
-import { useParams } from 'next/navigation';
 import '@testing-library/jest-dom';
+import { render, screen, waitFor } from '@testing-library/react';
+import { useParams } from 'next/navigation';
+import ProductDetailsPage from './page';
 
 // Mock do useParams para retornar um ID de produto específico
 jest.mock('next/navigation', () => ({

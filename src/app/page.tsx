@@ -2,8 +2,8 @@
 
 import Spinner from '@/components/Spinner/Spinner';
 import { ProductService } from '@/services/ProductService';
-import dynamic from 'next/dynamic';
 import { Product } from '@/types/Product';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
 const ProductList = dynamic(() => import('@/components/ProductList/ProductList'), {

@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import ProductList from './ProductList';
 import { useProductContext } from '@/contexts/ProductContext';
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import ProductList from './ProductList';
 
 jest.mock('@/contexts/ProductContext', () => ({
   useProductContext: jest.fn(),

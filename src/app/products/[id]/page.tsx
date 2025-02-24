@@ -2,15 +2,6 @@
 
 import Spinner from '@/components/Spinner/Spinner';
 import { ProductService } from '@/services/ProductService';
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-}
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -24,6 +15,15 @@ import {
   Price,
   Title,
 } from './ProductDetails.styles';
+
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+}
 
 export default function ProductDetailsPage() {
   const params = useParams();

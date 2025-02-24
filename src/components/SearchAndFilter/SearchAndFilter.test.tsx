@@ -1,6 +1,6 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import SearchAndFilter from './SearchAndFilter';
 import '@testing-library/jest-dom';
+import { fireEvent, render, screen } from '@testing-library/react';
+import SearchAndFilter from './SearchAndFilter';
 
 describe('SearchAndFilter', () => {
   const mockSetSearchTerm = jest.fn();

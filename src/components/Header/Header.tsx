@@ -1,8 +1,8 @@
-import React from 'react';
-import Link from 'next/link';
 import { useCartContext } from '@/contexts/CartContext';
+import Link from 'next/link';
+import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
-import { CartIconContainer, CartCount, HeaderWrapper, FakeStoreText } from './Header.styles';
+import { CartCount, CartIconContainer, FakeStoreText, HeaderWrapper } from './Header.styles';
 
 const Header: React.FC = () => {
   const { cartItems } = useCartContext();
