@@ -72,6 +72,7 @@ frontend-test/
 │   │   └── products/
 │   │       └── [id]/
 │   │           ├── ProductDetails.styles.ts
+│   │           ├── ProductDetails.test.ts
 │   │           └── page.tsx
 │   ├── components/
 │   │   ├── Footer/
@@ -84,6 +85,7 @@ frontend-test/
 │   │   │   └── Header.tsx
 │   │   ├── Pagination/
 │   │   │   ├── Pagination.styles.ts
+│   │   │   ├── Pagination.test.ts
 │   │   │   └── Pagination.tsx
 │   │   ├── ProductCard/
 │   │   │   ├── ProductCard.styles.ts
@@ -103,15 +105,18 @@ frontend-test/
 │   │   │   └── Spinner.tsx
 │   ├── contexts/
 │   │   ├── CartContext.tsx
+│   │   ├── CartContext.test.tsx
 │   │   ├── ProductContext.test.tsx
 │   │   └── ProductContext.tsx
 │   ├── services/
 │   │   ├── api.ts
 │   │   ├── ProductService.test.tsx
-│   │   └── products.ts
+│   │   └── ProductService.ts
 │   └── styles/
 │       ├── global.ts
 │       └── theme.ts
+│   └── types/
+│       ├── Product.ts
 ```
 
 ## Link da Aplicação 🌐
